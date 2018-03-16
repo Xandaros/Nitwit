@@ -29,6 +29,7 @@ public class CreatureSpawnListener implements Listener {
         recipes.add(shulkerRecipe());
         recipes.add(elytraRecipe());
         recipes.add(totemRecipe());
+        recipes.add(dragonEggRecipe());
 
         villager.setRecipes(recipes);
     }
@@ -50,6 +51,12 @@ public class CreatureSpawnListener implements Listener {
         MerchantRecipe recipe = new MerchantRecipe(new ItemStack(Material.TOTEM), 10);
         recipe.addIngredient(new ItemStack(Material.WHEAT, ThreadLocalRandom.current().nextInt(40, 65)));
         recipe.addIngredient(new ItemStack(Material.BLAZE_ROD, ThreadLocalRandom.current().nextInt(16, 37)));
+        return recipe;
+    }
+
+    private static MerchantRecipe dragonEggRecipe() {
+        MerchantRecipe recipe = new MerchantRecipe(new ItemStack(Material.DRAGON_EGG), 10);
+        recipe.addIngredient(new ItemStack(Material.EMERALD, ThreadLocalRandom.current().nextInt(1,6)));
         return recipe;
     }
 }
